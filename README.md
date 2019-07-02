@@ -32,3 +32,13 @@ You can set up project by using environment variables
         <td>27017</td>
     </tr>
 </table>
+
+## Install
+
+- `make`
+
+- `docker run -p 8000:8000 --env MONGODB_HOST='your_mongo_host' hubot-mongo-bridge-server`
+
+## Usage
+
+`http://localhost:8000/locale?user_id=foo`
