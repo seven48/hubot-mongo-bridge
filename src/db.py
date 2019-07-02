@@ -3,7 +3,7 @@
 from motor import motor_asyncio
 
 
-class Connection:
+class Connection:  # pylint: disable=too-few-public-methods
     """ Class for connecting to mongodb """
 
     INSTANCE = None
@@ -24,10 +24,3 @@ class Connection:
             cls.INSTANCE.__init__(*args, **kwargs)
 
         return cls.INSTANCE
-
-    async def check_connection(self):
-        """ Check connection to database """
-
-        result = await self.connection.admin.command('ping')
-        if not result.get('ok'):
-            raise Exception('Could not connect to database')
