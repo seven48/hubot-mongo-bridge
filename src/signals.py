@@ -7,5 +7,4 @@ from src.settings import MONGODB_HOST, MONGODB_PORT
 async def on_startup(_):
     """ Function that will called on server starting """
 
-    connection = Connection(host=MONGODB_HOST, port=MONGODB_PORT)
-    await connection.check_connection()
+    Connection(host=MONGODB_HOST, port=MONGODB_PORT)
