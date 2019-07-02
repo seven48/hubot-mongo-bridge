@@ -1,10 +1,11 @@
 """ Module for aiohttp signals """
 
 from src.db import Connection
+from src.settings import MONGODB_HOST, MONGODB_PORT
 
 
 async def on_startup(_):
     """ Function that will called on server starting """
 
-    connection = Connection(host='localhost', port=27018)
+    connection = Connection(host=MONGODB_HOST, port=MONGODB_PORT)
     await connection.check_connection()
