@@ -1,11 +1,18 @@
 language: python
 
 python:
-  - 3.6
+  - '3.6'
+
+services:
+  - mongodb
 
 install:
   - pip install -r requirements.txt
   - pip install pylint
 
+before_script:
+  - mongo rocketchat --eval 'db.createCollection("users", { });db.users.insert({_id:"rocket.cat",language:"ru"})'
+
 script:
   - pylint app.py src/
+  - env PYTHONPATH=$(pwd) py.test tests/
