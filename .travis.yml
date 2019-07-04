@@ -11,7 +11,7 @@ install:
   - pip install pylint
 
 before_script:
-  - mongo rocketchat --eval 'db.createCollection("users", { });db.users.insert({_id:"rocket.cat",language:"ru"})'
+  - mongo rocketchat --eval 'db.createCollection("users", { });db.users.insert([{_id:"rocket.cat",language:"ru"},{_id:"rocket.dog"}])'
 
 script:
   - pylint app.py src/
