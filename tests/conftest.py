@@ -1,8 +1,12 @@
+""" Module for test fixtures """
+
 import pytest
 
 from src.utils import make_app
 
 
 @pytest.fixture
-def client(loop, aiohttp_client):
-    return loop.run_until_complete(aiohttp_client(make_app()))
+async def client(aiohttp_client):
+    """ aiohttp client """
+
+    return await aiohttp_client(make_app())

@@ -14,5 +14,5 @@ before_script:
   - mongo rocketchat --eval 'db.createCollection("users", { });db.users.insert([{_id:"rocket.cat",language:"ru"},{_id:"rocket.dog"}])'
 
 script:
-  - pylint app.py src/
+  - find -name "*.py" -not -path "./venv/*" | xargs pylint
   - env PYTHONPATH=$(pwd) py.test tests/
